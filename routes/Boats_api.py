@@ -20,7 +20,7 @@ def get_boats():
 def get_boat(boat_id):
     conn = get_db_connection()
     if not conn:
-        return jsonify({"error": "Database connection failed"}), 500
+        return jsonify({"error": "Database connection failed again"}), 500
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM boats WHERE boat_id = %s", (boat_id,))
     boat = cursor.fetchone()
