@@ -4,7 +4,7 @@ from db import get_db_connection
 boats_bp = Blueprint('boats', __name__, url_prefix='/boat')
 
 # Obtener todos los barcos
-@boats_bp.route('/', methods=['GET'])
+@boats_bp.route('/', methods=['GET']) 
 def get_boats():
     conn = get_db_connection()
     if not conn:
@@ -20,7 +20,7 @@ def get_boats():
 def get_boat(boat_id):
     conn = get_db_connection()
     if not conn:
-        return jsonify({"error": "Database connection failed"}), 500
+        return jsonify({"error": "Database connection failed terribly"}), 500
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM boats WHERE boat_id = %s", (boat_id,))
     boat = cursor.fetchone()
