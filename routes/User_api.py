@@ -55,7 +55,7 @@ def update_user(id):
     )
     conn.commit()
     conn.close()
-    return jsonify({"message": "User updated successfully"}), 200 if cursor.rowcount else jsonify({"message": "User not found"}), 404
+    return jsonify({"message": "User updated successfully!"}), 200 if cursor.rowcount else jsonify({"message": "User not found"}), 404
 
 # Eliminar usuario
 @users_bp.route('/<int:id>', methods=['DELETE'])
