@@ -8,7 +8,7 @@ boats_bp = Blueprint('boats', __name__, url_prefix='/boat')
 def get_boats():
     conn = get_db_connection()
     if not conn:
-        return jsonify({"error": "Database connection failed"}), 500
+        return jsonify({"error": "Database connection failed!!!"}), 500
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM boats")
     boats = cursor.fetchall()
